@@ -1,0 +1,10 @@
+8
+>SHRUB: Blossom time: NOVEMBER; Name: Catvin; Relation: 0.3333333333333333.<
+>SHRUB: Blossom time: AUGUST; Name: Larosucekliwin; Relation: 0.42857142857142855.<
+>TREE: Age: 587; Name: Uteqinintas; Relation: 0.45454545454545453.<
+>TREE: Age: 33; Name: Lolakalatovin; Relation: 0.46153846153846156.<
+>FLOWER: Type: GARDEN; Name: Watucineheutas; Relation: 0.5.<
+>FLOWER: Type: DOMESTIC; Name: Upininutas; Relation: 0.5.<
+>TREE: Age: 312; Name: Joailaprowin; Relation: 0.5.<
+>TREE: Age: 450; Name: Pinucyuzinewin; Relation: 0.5.<
+[INFO - 2021-11-01 02:35:07 - 0.000060 seconds left.]

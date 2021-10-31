@@ -1,0 +1,17 @@
+15
+>FLOWER: Type: GARDEN; Name: Qaclis; Relation: 0.3333333333333333.<
+>FLOWER: Type: GARDEN; Name: Wacacztas; Relation: 0.3333333333333333.<
+>FLOWER: Type: GARDEN; Name: Joriclis; Relation: 0.375.<
+>SHRUB: Blossom time: NOVEMBER; Name: Musuztas; Relation: 0.375.<
+>FLOWER: Type: GARDEN; Name: Xamecketus; Relation: 0.4.<
+>TREE: Age: 477; Name: Qelaclawotas; Relation: 0.4166666666666667.<
+>SHRUB: Blossom time: MARCH; Name: Vibsuacqinulis; Relation: 0.42857142857142855.<
+>SHRUB: Blossom time: OCTOBER; Name: Orsalis; Relation: 0.42857142857142855.<
+>TREE: Age: 931; Name: Ybnitas; Relation: 0.42857142857142855.<
+>FLOWER: Type: DOMESTIC; Name: Maduzietas; Relation: 0.5.<
+>SHRUB: Blossom time: JUNE; Name: Ecakiobtus; Relation: 0.5.<
+>FLOWER: Type: WILD; Name: Oreqebaceuzwin; Relation: 0.5.<
+>SHRUB: Blossom time: JANUARY; Name: Orinutas; Relation: 0.5.<
+>SHRUB: Blossom time: JUNE; Name: Jieoruemtas; Relation: 0.5454545454545454.<
+>SHRUB: Blossom time: JANUARY; Name: Paoialalis; Relation: 0.6.<
+[INFO - 2021-11-01 02:35:38 - 0.000142 seconds left.]

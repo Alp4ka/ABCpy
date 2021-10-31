@@ -3,38 +3,41 @@ from logger import Logger
 from random import randint
 import typing
 from abc import abstractmethod
+from utils import functions
 
 MIN_NAME_LENGTH = 6
 MAX_NAME_LENGTH = 14
 
 REALISTIC_RELATION = {
-    'a': 'qqwwerrttttyuiopppasssdddffgnnnhhjkcccccbbnnnnmllzzetctcctccbfccdldctbehorsrusnwpcdscrstrttcszapmkdbrtcbccedccccnktknstscbstslescnrbnszlsrc',
-    'b': 'weeeerrtyuyioooaaassadjjslleeizcnnnuubujrisrusaialuraeusan',
-    'c': 'uuuqeeeyooooiyaaaaettshhkklzcniiikkkkeieaiiaeiukkekoaaakkioieeoiiuikkookuaiokkkiikkyekeioouakkaikkyoukkauieae',
-    'd': 'deeeaauuiiuuuaeaeaeiiiiiiiiiiue',
-    'e': 'eqqqccabqwertyuiopasdfghjklzxcvbnwwwmvelvvodhavurvhxvdvuvvcvnvranttvtwvhqttnptuvnlhevskmbvnveowwatltvsfqazqtramvtvvvvbhvmobvluwndunwmkkmulvtccvclltamdvqndvktc',
-    'f': 'uuuaaeeoooiiillcaiilialuil',
-    'g': 'grreeeaaaioaeae',
+    'a': 'hmscukrrtcbzpscndssctracnnbcdferdtdttntndnbskbscnceplcqtcezlcpstfscbsricshtebhrpzonfbowynwzswkueknccrdjnlcbcsccrdcttcldccqcgatprctlmsssnttc',
+    'b': 'unuaciaudeearoauuearlsjurtlenirinjerosybiznyowsaeejalsauss',
+    'c': 'ecaueakkaikyetaitokkkoaaiaiouikaaiaikokhakaekkkkelkueaoikkiizkiykyiaoioaeskekakukaekoankeaaikykeaohkkaeiuakqu',
+    'd': 'iuiieuaeaaiieeuiiieeiauuiauiide',
+    'e': 'hvacmlmvadomdvdatvvvbulaabvkdtoktfvawmunvcnmwqrtcvoanlwqlslhwwhtwtvmuwrzivcwccvgklvuvtttvpbtqwbvouvvvnandtlrvstpkqnedvjfveuevvqsznqxvvqcruxvqmevhtetkbhnvlchyn',
+    'f': 'olceluoaileiuiilailuaiuaio',
+    'g': 'aaeeroiageraeea',
     'h': 'eeettaaaiiioollanitooiielniioi',
-    'i': 'oooaaaeeebbhllllqnnncccnnnnneceeoeaeneaehecnenennnbllllnnancnbnnenbennennecnnnnoacennnnonnonnonnaonanneoananobeonnnaanncnnonnonaenen',
+    'i': 'clnonnnnnnennonnoannncecnalehenenlnnnaloenncennabebnnnanonbnnoeeonecannacbenonanoananeenelnneqneonnnnnneenllnncclhbaoabneoeconneon',
     'j': 'oooeeiiaaaoiiooo',
-    'k': 'kiilloooaaaeeieeaeaeaeioeaoileoaoiaiaileil',
-    'l': 'eeessiiioooaaelleoaiaoeaeaiisseaaaaaaaaaeaeeooieeo',
+    'k': 'iilloooaaaeeieekeaeaeioeaoileoaoiaiaileil',
+    'l': 'eeessiiioooaaeleoaiaoeaeaiisseaaaaaaaaaelaeeooieeo',
     'm': 'euuuooonnaaaaiiisemmmoaaoiia',
-    'n': 'neeeuuuuiiieeininuinuiiieieiueeuenueeeeunuiiiienienueieeeueeieeeeniueeiuiueu',
-    'o': 'rrrrrccckkkkllqqrruuuhhhppwwaassrrrbbbmzbqwertyuiopwhurkwrrhrcrckwhlccrprrrykrcirrrrctlrysruwhlrrilbuklpp',
+    'n': 'neeeuuuuiiieeininuinuiiieieiueeueueeeeunuiiiienieueieeeueeieeeeniueeiuiueu',
+    'o': 'ccrrrriikctrrwrlcukqchhumulbuhrrrirpsllrbhyoulkkpwtshrarqbwrlrweyrrrprrwucrkbcckrrurywrwprpklkhrcrbhszpqa',
     'p': 'ooooaaaaiiirrroooairroooaiiiaiioii',
-    'q': 'euuuuuiirrttaaeeiuiu',
-    'r': 'nnnooooooaaeeeeeiiiioaaaauuuqqqqkkkcccnnssssnnniuiiuoiioeuiasuuunuiaaueeoeaoua',
+    'q': 'euuuuuiirtaaeeiuiu',
+    'r': 'nnoonooooooaaeeeeeiiiioaaaauuuqkiiccnnsuussnnniuiiuoiioeuiasuuunuiaaueeoeaoua',
     's': 'uuuiiiaappuuuuyyyuuuyyuauuauuyaauauuuiuiuuuuuipuuuuuuuyyuuya',
     't': 'ttuuiiooaaeeeueeeeuueeiaeaaeueeiueaoeueeaeii',
     'u': 'cccccceeeecccaaaattnpzzssspeaaacscacacpsecpzzcecntccasaeecesssepaapeeaecanzsczpcnescaptceesccscscaapccnsacccccatescsaztccacscteaeaes',
     'v': 'iiiuuuiiiiuiiiuuuuuiiiuiiiuiiiiuuiuuiiu',
     'w': 'eeaaoooooouuiooaoooooooeaoooo',
-    'x': 'yyyycccceeecqqqy',
+    'x': 'yyyyceiiiyyeeeaaaaaeqy',
     'y': 'eeeuuuttrbbruuueuuuueuuuuueu',
     'z': 'aaeeiiuuuuaaeueaeauuaeauaueauuee'
 }
+
+ENDINGS = ["vin", "tus", "tas", "win", "lis"]
 
 ALLOWED_SYMBOLS = "QWERTYUIOPASDFGHJKLZXCVBNM-qwertyuiopasdfghjklzxcvbnm"
 
@@ -66,8 +69,11 @@ class Plant:
     def __init__(self, name:str):
         self.name = name
 
+    def relation(self):
+        return functions.count_relation(self.name)
+
     def __str__(self):
-        return f"Name: {self.name}."
+        return f"Name: {self.name}; Relation: {self.relation()}."
 
     @staticmethod
     def generate_plant():
@@ -89,11 +95,12 @@ class Plant:
     def generate_name_realistic(length: int):
         global REALISTIC_RELATION
         result = ""
+        random_ending = ENDINGS[randint(0, len(ENDINGS) - 1)]
         current_sym = list(REALISTIC_RELATION.keys())[randint(0, len(REALISTIC_RELATION.keys())-1)]
-        for i in range(length):
+        for i in range(length-len(random_ending)):
             result+=current_sym
             current_sym = REALISTIC_RELATION[current_sym][randint(0, len(REALISTIC_RELATION[current_sym])-1)]
-        result = result[0].upper() + result[1:]
+        result = result[0].upper() + result[1:] + random_ending
         return result
 
     @staticmethod
@@ -118,23 +125,11 @@ class Plant:
             elif plant_type == PlantType.TREE:
                 return Tree.parse(input_file)
             else:
-                Logger.Loggerinho.log("Oops! Looks like there is no such a plant type!", Logger.LogType.ERROR)
+                Logger.log("Oops! Looks like there is no such a plant type!", Logger.LogType.ERROR)
                 return None
         except Exception as ex:
-            Logger.Loggerinho.log(f"Error while reading plant! {ex.__str__()}", Logger.LogType.ERROR)
+            Logger.log(f"Error while reading plant! {ex.__str__()}", Logger.LogType.ERROR)
             return None
-
-    @staticmethod
-    def parse_file(file_name):
-        list_of_plants = list()
-        with open(file_name, 'r') as input_file:
-            number_of_elements = input_file.readline()
-            if not number_of_elements:
-                return list_of_plants
-            number_of_elements = int(number_of_elements)
-            for i in range(number_of_elements):
-                list_of_plants.append(Plant.parse(input_file))
-        return list_of_plants
 
 
 class Flower(Plant):
@@ -161,13 +156,13 @@ class Flower(Plant):
             line = input_file.readline()
             splitted = line.split()
             if len(splitted) != 2:
-                Logger.Loggerinho.log(f"Wrong amount amount of arguments for Flower. Need: 2. Found: {len(splitted)}!", Logger.LogType.ERROR)
+                Logger.log(f"Wrong amount amount of arguments for Flower. Need: 2. Found: {len(splitted)}!", Logger.LogType.ERROR)
                 raise Exception()
             name = splitted[0]
             flower_type = FlowerType(int(splitted[1]))
             return Flower(name, flower_type)
         except:
-            Logger.Loggerinho.log("Error while reading Flower!", Logger.LogType.ERROR)
+            Logger.log("Error while reading Flower!", Logger.LogType.ERROR)
             return None
 
 
@@ -196,14 +191,14 @@ class Shrub(Plant):
             line = input_file.readline()
             splitted = line.split()
             if len(splitted) != 2:
-                Logger.Loggerinho.log(f"Wrong amount amount of arguments for Shrub. Need: 2. Found: {len(splitted)}!",
+                Logger.log(f"Wrong amount amount of arguments for Shrub. Need: 2. Found: {len(splitted)}!",
                                       Logger.LogType.ERROR)
                 raise Exception()
             name = splitted[0]
             blossom_time = BlossomTime(int(splitted[1]))
             return Shrub(name, blossom_time)
         except:
-            Logger.Loggerinho.log("Error while reading Shrub!", Logger.LogType.ERROR)
+            Logger.log("Error while reading Shrub!", Logger.LogType.ERROR)
             return None
 
 class Tree(Plant):
@@ -230,12 +225,12 @@ class Tree(Plant):
             line = input_file.readline()
             splitted = line.split()
             if len(splitted) != 2:
-                Logger.Loggerinho.log(f"Wrong amount amount of arguments for Tree. Need: 2. Found: {len(splitted)}!",
+                Logger.log(f"Wrong amount amount of arguments for Tree. Need: 2. Found: {len(splitted)}!",
                                       Logger.LogType.ERROR)
                 raise Exception()
             name = splitted[0]
             age = int(splitted[1])
             return Tree(name, age)
         except:
-            Logger.Loggerinho.log("Error while reading Flower!", Logger.LogType.ERROR)
+            Logger.log("Error while reading Flower!", Logger.LogType.ERROR)
             return None

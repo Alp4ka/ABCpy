@@ -7,10 +7,13 @@ class LogType(Enum):
     INFO = 2,
     DEBUG = 3
 
-class Loggerinho:
-    @staticmethod
-    def log(msg:str, log_type = None):
-        if log_type is None:
-            log_type = LogType.INFO
-        print(f"[{log_type.name} - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {msg}]")
+def log(msg:str, log_type = None):
+    if log_type is None:
+        log_type = LogType.INFO
+    print(f"[{log_type.name} - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {msg}]")
 
+def log_file(msg:str, output_file:str, log_type = None):
+    if log_type is None:
+        log_type = LogType.INFO
+    with open(output_file, "a") as f:
+        f.write(f"[{log_type.name} - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {msg}]\n")

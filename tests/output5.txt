@@ -1,0 +1,12 @@
+10
+>FLOWER: Type: WILD; Name: Bnninuanlis; Relation: 0.36363636363636365.<
+>TREE: Age: 538; Name: Rspatematetus; Relation: 0.38461538461538464.<
+>SHRUB: Blossom time: FEBRUARY; Name: Tucabtetas; Relation: 0.4.<
+>SHRUB: Blossom time: FEBRUARY; Name: Mucietuprtus; Relation: 0.4166666666666667.<
+>SHRUB: Blossom time: DECEMBER; Name: Rickakiozaftus; Relation: 0.42857142857142855.<
+>FLOWER: Type: DOMESTIC; Name: Bwohocateortus; Relation: 0.42857142857142855.<
+>SHRUB: Blossom time: SEPTEMBER; Name: Oriegarslis; Relation: 0.45454545454545453.<
+>TREE: Age: 341; Name: Feacibalis; Relation: 0.5.<
+>SHRUB: Blossom time: DECEMBER; Name: Horuatatus; Relation: 0.5.<
+>FLOWER: Type: GARDEN; Name: Icyueltas; Relation: 0.5555555555555556.<
+[INFO - 2021-11-01 02:36:31 - 0.000121 seconds left.]

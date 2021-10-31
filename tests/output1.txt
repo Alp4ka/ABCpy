@@ -1,0 +1,7 @@
+5
+>FLOWER: Type: WILD; Name: Wahlvin; Relation: 0.2857142857142857.<
+>TREE: Age: 636; Name: Xybbevinitus; Relation: 0.4166666666666667.<
+>SHRUB: Blossom time: JULY; Name: Hieweflsutas; Relation: 0.4166666666666667.<
+>TREE: Age: 825; Name: Maqievinieatas; Relation: 0.5714285714285714.<
+>FLOWER: Type: DOMESTIC; Name: Yuaevtus; Relation: 0.625.<
+[INFO - 2021-11-01 02:34:28 - 0.000038 seconds left.]
