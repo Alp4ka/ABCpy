@@ -2,7 +2,11 @@ from models import Plants
 
 MAX_CONTAINER_SIZE = 10000
 
+
 class Container:
+    """
+        Array analogue.
+    """
     def __init__(self):
         self.c = list()
 
@@ -11,6 +15,15 @@ class Container:
 
     @staticmethod
     def from_list(arr):
+        """
+            Initialize container from file.
+
+            Args:
+                arr: array to convert
+
+            Returns:
+                Container with the same elements as in the array.
+        """
         result = Container()
         for i in range(len(arr)):
             result.add(arr[i])
@@ -43,7 +56,16 @@ class Container:
             yield elem
 
     @staticmethod
-    def from_file(file_name):
+    def from_file(file_name) -> 'Container':
+        """
+            Initialize container from file.
+
+            Args:
+                file_name: file to read from
+
+            Returns:
+                container instance with specified elements.
+        """
         container = Container()
         with open(file_name, 'r') as input_file:
             number_of_elements = input_file.readline()
